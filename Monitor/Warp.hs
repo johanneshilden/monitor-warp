@@ -39,9 +39,9 @@ data ServerSettings a = ServerSettings
                                   -- made available to the request handler.
     }
 
--- | Adds some process management capabilities via SIGHUP and SIGTERM to the 
--- Warp server by running the server as a monitored worker thread and installing
--- the necessary signal handlers.
+-- | Introduces some process management capabilities to the Warp server, using
+-- SIGHUP and SIGTERM. This function launches the server as a monitored worker 
+-- thread and installs the necessary signal handlers.
 sigServ :: IO (ServerSettings a)      
         -- ^ Called prior to server start
         -> (ServerSettings a -> Shutdown -> IO ()) 
