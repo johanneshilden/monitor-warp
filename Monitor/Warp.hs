@@ -48,7 +48,7 @@ sigServ :: IO (ServerSettings a)
         -- ^ Shutdown hook. Accepts the settings object and a value to indicate
         -- the type of shutdown operation (exit or restart).
         -> IO ()
-sigServ onStartup onExit = do
+sigServ onUp onDown = do
 
     shutdown <- newEmptyTMVarIO
     conns <- newTVarIO (0 :: Int)
@@ -62,7 +62,7 @@ sigServ onStartup onExit = do
     runWorker :: TMVar Shutdown -> TVar Int -> IO ()
     runWorker shutdown conns = do
     
-        settings@ServerSettings{..} <- onStartup
+        settings@ServerSettings{..} <- onUp
     
         -- Install hooks to keep track of the number of open connections
         let settings' = setOnOpen  (onOpen  conns)
@@ -75,7 +75,7 @@ sigServ onStartup onExit = do
         -- The worker is taken down, in case we intend to restart the service
         killThread worker
 
-        onExit settings action
+        onDown settings action
     
         -- If a SIGHUP was received, we reload any configuration
         -- files, re-initialize the server and fork a new thread

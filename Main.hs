@@ -31,7 +31,7 @@ onStartup = do
 onExit :: ServerSettings AppData -> Shutdown -> IO ()
 onExit _ action = do
     case action of
-        Restart -> putStrLn "Service closing down for restart.\n"
+        Restart -> putStrLn "Shutting down for restart.\n"
         Exit    -> putStrLn "Service terminating.\n"
 
 main :: IO ()
