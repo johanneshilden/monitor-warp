@@ -53,3 +53,9 @@ main = sigServ onStartup onExit
 
 ```
 
+Build and run the demo. You should then be able to manage the process using the standard unix `kill` command.
+
+```
+kill -1 28908
+```
+
