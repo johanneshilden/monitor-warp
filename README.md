@@ -3,7 +3,7 @@ monitor-warp
 
 Provides some nominal support for process management via SIGHUP and SIGTERM to the Warp web server.
 
-The included `Main.hs` illustrates a basic use case:
+The included `Main.hs` illustrates the most basic use case:
 
 ```
 {-# LANGUAGE OverloadedStrings #-}
