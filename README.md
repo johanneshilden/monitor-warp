@@ -9,7 +9,7 @@ This module is largely based on the following GitHub Gist by Nathan Howell:
 
 https://gist.github.com/NathanHowell/5435345
 
-The included `Main.hs` illustrates the most basic use case:
+The included `Main.hs` illustrates the basic use case:
 
 ```
 {-# LANGUAGE OverloadedStrings #-}
@@ -53,9 +53,9 @@ main = sigServ onStartup onExit
 
 ```
 
-Build and run the demo. You should then be able to manage the process using the standard unix `kill` command.
+Build and run the demo. You should then be able to manage the process using the normal unix shell commands. E.g., to restart the process:
 
 ```
-kill -1 28908
+$ kill -1 <pid>
 ```
 
