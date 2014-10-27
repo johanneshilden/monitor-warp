@@ -23,7 +23,7 @@ executable graceful
                      , bytestring >=0.10.0.0
                      , http-types
                      , mtl
-                     , stm
+                     , stm >=2.3
                      , unix
                      , wai
                      , warp
